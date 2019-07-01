@@ -1,5 +1,9 @@
 var empty = [];
 
+const toDoForm = document.getElementById('todo');
+
+// const oldPar = document.querySelector('.select').value;
+
 function add() {
     
     var errand = document.getElementById('todo').value;
@@ -39,7 +43,9 @@ function newTD() {
         //Adding Text to P tag
         var tex = document.getElementById('todo').value;
         var newP = document.createElement('p');
+        newP.classList.add('select');
         var p = document.createTextNode(tex);
+        
 
         //Adding Icons
         var check = document.createElement('i');
@@ -48,13 +54,21 @@ function newTD() {
             newli.parentNode.removeChild(newli);
             alert('Great job!');
         });
+
+        // let oldPar = document.querySelector('.select').value;
         
         var trash = document.createElement('i');
         trash.innerHTML = '<i class="fas fa-trash-alt"></i>';
         trash.addEventListener('click', function() {
             newli.parentNode.removeChild(newli);
+
+            // let update = prompt('Edit?');
+
+            // // this.oldPar.innerHTML = update;
+            // document.querySelector('.select').innerHTML = update;
+            // empty[0] = update
         });
-        
+
         //Add Check to List
         newli.appendChild(newCheck);
         
@@ -85,6 +99,7 @@ function display() {
     add();
     clear();
 }
+
 
 document.addEventListener('keypress', function(e) {
         if (e.keyCode === 13) {
